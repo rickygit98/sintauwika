@@ -72,17 +72,6 @@ class MhsTopikController extends Controller
         $dosen_email = $dosen->user->email;
 
         $topik = Topik::create($validatedData);
-        
-        // Setelah buat di topik , masukkan data ke table N to N pembimbings
-        
-        // $ds_id = $validatedData['dosen_id'];
-        // $topik_id = $topik->id;
-        
-        // $ds = new DosenTopik();
-        // $ds->topik_id = $topik_id;
-        // $ds->dosen_id = $ds_id;
-        // $ds->save();
-     
       
         //Kirim Email
         $content = [
@@ -93,7 +82,8 @@ class MhsTopikController extends Controller
 
         Mail::to($dosen_email)->send(new Email($content));
 
-        return redirect('/mahasiswa/topik/')->with('success','Topik anda berhasil diajukan silakan tunggu pemberitahuan berikutnya :)');
+        
+        return redirect(url('/mahasiswa/topik/'))->with('success','Topik anda berhasil diajukan silakan tunggu pemberitahuan berikutnya :)');
     }
 
     /**
@@ -115,10 +105,7 @@ class MhsTopikController extends Controller
      */
     public function edit(Topik $topik)
     {
-        return view('/mahasiswa/topik/editTopik',[
-            'topik'=>$topik,
-            'kategori' => Kategori::all(),
-        ]);
+        //
     }
 
     /**

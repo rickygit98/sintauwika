@@ -103,3 +103,6 @@ Route::get('/download-pdf/{skripsi:id}', [kartuBimbinganController::class,'downl
 
 // ROUTE TESTING
 Route::get('/testTime',[TestTime::class,'index']);
+Route::get('/phpinfo', function () {
+    return phpinfo();
+});

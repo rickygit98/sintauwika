@@ -24,14 +24,15 @@
     <div class=" container-fluid d-flex p-3  flex-column">
         <header class="mb-auto">
             <div>
-                <a href="/home">
-                    <img src="/img/brand.png" alt="" class="float-md-start brand" style="width: 50px; margin-right:20px">
+                <a href="{{ url('/home') }}">
+                    <img src="{{ asset('/img/brand.png') }}" alt="" class="float-md-start brand"
+                        style="width: 50px; margin-right:20px">
 
                     <h3 class="float-md-start my-2">SINTA</h3>
                 </a>
                 <nav class="nav nav-masthead justify-content-center float-md-end my-2">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                    <a class="nav-link" href="{{ url('/about') }}">About</a>
 
                     @auth
 
@@ -40,19 +41,19 @@
                     if(Auth::user()->role_id == 1){
                         $ad = DB::table('admins')->where('user_id', Auth::id() )->first();
                         ?>
-                        <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/admin/dashboard/') }}">Dashboard</a>
                         <?php 
                     }
                     else if(Auth::user()->role_id == 2){
                         $dsn = DB::table('dosens')->where('user_id', Auth::id() )->first();
                         ?>
-                        <a class="nav-link" href="/dosen/dashboard">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/dosen/dashboard/') }}">Dashboard</a>
                         <?php 
                      }
                     else if(Auth::user()->role_id == 3){
                         $mhs = DB::table('mahasiswas')->where('user_id', Auth::id() )->first();
                         ?>
-                        <a class="nav-link" href="/mahasiswa/dashboard">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/mahasiswa/dashboard/') }}">Dashboard</a>
                         <?php 
                     }
                     ?>

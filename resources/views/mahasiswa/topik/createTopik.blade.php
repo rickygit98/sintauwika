@@ -4,7 +4,7 @@
     <section id="">
         <div class="col-lg-8">
 
-            <form action="/mahasiswa/topik/" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/mahasiswa/topik/') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Untuk mendapat mahasiswa ID seharusnya pakai method auth()->user()->id --}}
