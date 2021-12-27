@@ -132,7 +132,7 @@ class DsnTopikController extends Controller
             //     'text' => 'Hi, Mahasiswa , topik anda ditolak oleh dosen pembimbing anda, segera login ke aplikasi untuk keterangan lebih lanjut'
             // ]);
 
-            return redirect('/dosen/topik/')->with('success','Topik berhasil Ditolak');
+            return redirect(url('/dosen/topik/'))->with('success','Topik berhasil Ditolak');
         }
         else {    
             //Masukkan ke table skripsi
@@ -157,7 +157,7 @@ class DsnTopikController extends Controller
             //     'text' => 'Hi, Mahasiswa , Selamat ! topik anda diterima oleh dosen pembimbing anda, segera login ke aplikasi untuk keterangan lebih lanjut'
             // ]);
 
-            return redirect('/dosen/topik/')->with('success','Topik berhasil Diterima');
+            return redirect(url('/dosen/topik/'))->with('success','Topik berhasil Diterima');
         }
     }
 
@@ -172,9 +172,4 @@ class DsnTopikController extends Controller
         //
     }
 
-    public function getAllTopikByDosen1($id){
-        $user = User::find($id);
-        $topik = $user->topik;
-        return $topik;
-    }
 }

@@ -24,7 +24,7 @@
                         <!-- Main content -->
                         <div class="invoice p-3 mb-3">
                             @if ($skripsi->status == 'Approve')
-                                <img src="/img/approve.png" alt="" srcset="" class='position-absolute'
+                                <img src="{{ asset('/img/approve.png') }}" alt="" srcset="" class='position-absolute'
                                     style="width: 100px; right:10px;">
                             @endif
 
@@ -118,7 +118,7 @@
                                                         <td><a href="{{ $skripsi->link }}" class="btn btn-default"
                                                                 target="blank">Link
                                                                 File Skripsi</a></td>
-                                                        <td><a href="/download/?file={{ $skripsi->file }}"
+                                                        <td><a href="{{ url('/download/?file=' . $skripsi->file) }}"
                                                                 class="btn btn-default">Download File</a></td>
 
                                                     </tr>
@@ -149,23 +149,23 @@
 
                                     @if ($skripsi->status == 'Approve')
 
-                                        <td><a href="/print/{{ $skripsi->id }}" class="btn btn-default"><i
+                                        <td><a href="{{ url('/print/' . $skripsi->id) }}" class="btn btn-default"><i
                                                     class="fas fa-print me-2"></i>Print</a>
                                         </td>
-                                        <td><a href="/download-pdf/{{ $skripsi->id }}" class="btn btn-default"><i
-                                                    class="fas fa-print me-2"></i>Save PDF</a>
+                                        <td><a href="{{ url('/download-pdf/' . $skripsi->id) }}"
+                                                class="btn btn-default"><i class="fas fa-print me-2"></i>Save PDF</a>
                                         </td>
 
                                     @else
                                         @if ($skripsi->bimbingan->count() > 0)
                                             <a class="btn btn-success float-right"
-                                                href="/mahasiswa/skripsi/{{ $skripsi->id }}/edit"><i
+                                                href="{{ url('/mahasiswa/skripsi/' . $skripsi->id) }}/edit"><i
                                                     class="far fa-credit-card"></i> Submit Revisi
                                             </a>
                                         @else
 
                                             <a class="btn btn-primary float-right" style="margin-right: 5px;"
-                                                href="/mahasiswa/skripsi/{{ $skripsi->id }}/edit">
+                                                href="{{ url('/mahasiswa/skripsi/' . $skripsi->id) }}/edit">
                                                 <i class="fas fa-download"></i> Submit Skripsi
                                             </a>
                                         @endif
@@ -193,7 +193,8 @@
             </p>
             <hr>
 
-            <a class="btn btn-primary my-3" href="/mahasiswa/dashboard/" style="text-decoration: none;"> Kembali ke
+            <a class="btn btn-primary my-3" href="{{ url('/mahasiswa/dashboard/') }}" style="text-decoration: none;">
+                Kembali ke
                 Dashboard </a>
         </div>
 

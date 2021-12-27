@@ -12,6 +12,7 @@
     @if ($topik->count() > 0)
         @foreach ($topik as $t)
             @if ($t->status == 'Submit Pertama')
+
                 <div class="alert alert-info alert-dismissible">
                     {{-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> --}}
                     <h5><i class="icon fas fa-info-circle fa-lg"></i> WAITING RESPONSE!</h5>
@@ -19,14 +20,16 @@
                 <div class="callout callout-info">
                     <h5>TERIMA KASIH MAHASISWA!</h5>
 
-                    <p>Anda baru saja submit topik berjudul "{{ $t->title }}" , silakan tunggu konfirmasi dari Dosen
-                        pembimbing pilihan
-                        anda
+                    <p>Anda baru saja submit topik berjudul <strong> "{{ $t->title }}" </strong> , silakan tunggu
+                        konfirmasi dari Dosen
+                        pembimbing pilihan anda
                     </p>
 
+                    <a href="{{ url('/mahasiswa/topik/create') }}" class="btn btn-primary text-light"
+                        style="text-decoration: none;">
+                        Submit Topik lain</a>
                 </div>
-                <a href="/mahasiswa/topik/create" class="btn btn-primary text-light" style="text-decoration: none;">
-                    Submit Topik Lagi</a>
+
             @endif
 
             @if ($t->status == 'Ditolak')
@@ -44,7 +47,8 @@
                         style="text-decoration: none;">
                         Submit Topik Lain</a> --}}
                 </div>
-                <a href="/mahasiswa/topik/create" class="btn btn-primary text-light" style="text-decoration: none;">
+                <a href="{{ url('/mahasiswa/topik/create') }}" class="btn btn-primary text-light"
+                    style="text-decoration: none;">
                     Submit Topik Lain</a>
             @endif
 
@@ -58,7 +62,8 @@
 
                     <p>Skripsi anda telah disetujui oleh dosen pembimbing anda , silakan masuk ke menu skripsi untuk
                         melanjutkna proses bimbingan</p>
-                    <a href="/mahasiswa/skripsi/" class="btn btn-primary text-light" style="text-decoration: none;"> Mulai
+                    <a href="{{ url('/mahasiswa/skripsi/') }}" class="btn btn-primary text-light"
+                        style="text-decoration: none;"> Mulai
                         bimbingan </a>
                 </div>
             @endif
@@ -72,7 +77,8 @@
             <hr>
             <p class="mb-0">Tekan tombol 'Ajukan Topik' di bawah ini agar kamu bisa segera tambahkan Topik
             </p>
-            <a class="btn btn-primary my-3" href="/mahasiswa/topik/create" style="text-decoration: none;"> Ajukan Topik</a>
+            <a class="btn btn-primary my-3" href="{{ url('/mahasiswa/topik/create') }}" style="text-decoration: none;">
+                Ajukan Topik</a>
         </div>
     @endif
 

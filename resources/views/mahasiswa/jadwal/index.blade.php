@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Maaf {{ Auth::user()->name }}</h5>
                             <p class="card-text">Anda belum punya skripsi yang diaprove</p>
-                            <a href="/mahasiswa/dashboard" class="btn btn-primary">Kembali ke dashboard</a>
+                            <a href="{{ url('/mahasiswa/dashboard') }}" class="btn btn-primary">Kembali ke dashboard</a>
                         </div>
                     </div>
                 @else
@@ -61,7 +61,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Maaf {{ $skripsi->topik->mahasiswa->user->name }}</h5>
                                 <p class="card-text">Anda belum punya jadwal untuk skripsi anda</p>
-                                <a href="/mahasiswa/dashboard" class="btn btn-primary">Kembali ke dashboard</a>
+                                <a href="{{ url('/mahasiswa/dashboard') }}" class="btn btn-primary">Kembali ke
+                                    dashboard</a>
                             </div>
                         </div>
                     @endif

@@ -11,7 +11,6 @@ use App\Http\Controllers\Mahasiswa\MhsJadwalController;
 use App\Http\Controllers\Dosen\DsnDashboardController;
 use App\Http\Controllers\Dosen\DsnTopikController;
 use App\Http\Controllers\Dosen\DsnSkripsiController;
-use App\Http\Controllers\Dosen\DsnBimbinganController;
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminSkripsiController;

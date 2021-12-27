@@ -5,7 +5,7 @@
         {{-- tampilkan progress Skripsi dan datanya --}}
 
         <h3>History Skripsi {{ $skripsi->topik->mahasiswa->user->name }}</h3>
-        <a href="/admin/skripsi/{{ $skripsi->id }}" class="btn btn-primary mb-2"> <i
+        <a href="{{ url('/admin/skripsi/' . $skripsi->id) }}" class="btn btn-primary mb-2"> <i
                 class="fas fa-arrow-alt-circle-left"></i>
             Back to Skripsi Detail</a>
         <table class="table">
@@ -38,7 +38,8 @@
                         @endif
 
                         @if ($bmb->file)
-                            <td><a href="/download/?file={{ $bmb->file }}"><i class="fas fa-file-alt me-2"></i>Download
+                            <td><a href="{{ url('/download/?file=' . $bmb->file) }}"><i
+                                        class="fas fa-file-alt me-2"></i>Download
                                     File</a>
                             </td>
 

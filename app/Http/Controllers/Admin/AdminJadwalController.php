@@ -104,7 +104,7 @@ class AdminJadwalController extends Controller
 
         ]);
 
-        return redirect('/admin/jadwal/')->with('success','Berhasil Menetapkan Jadwal');
+        return redirect(url('/admin/jadwal/'))->with('success','Berhasil Menetapkan Jadwal');
     }
 
     /**

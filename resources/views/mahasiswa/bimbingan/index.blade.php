@@ -35,7 +35,8 @@
                         @endif
 
                         @if ($bmb->file)
-                            <td><a href="/download/?file={{ $bmb->file }}"><i class="fas fa-file-alt me-2"></i>Download
+                            <td><a href="{{ url('/download/?file=' . $bmb->file) }}"><i
+                                        class="fas fa-file-alt me-2"></i>Download
                                     File</a>
                             </td>
 

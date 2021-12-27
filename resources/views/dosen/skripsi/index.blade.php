@@ -55,13 +55,14 @@
 
                                     <td>{{ $t->skripsi->subject }}</td>
                                     @if ($t->skripsi->link)
-                                        <td><a href="{{ $t->skripsi->link }}" class="btn btn-default">Menuju Link</a>
+                                        <td><a href="{{ $t->skripsi->link }}" class="btn btn-default"
+                                                target="blank">Menuju Link</a>
                                         </td>
                                     @else
                                         <td>None</td>
                                     @endif
                                     @if ($t->skripsi->file)
-                                        <td><a href="/download/?file={{ $t->skripsi->file }}"
+                                        <td><a href="{{ url('/download/?file=' . $t->skripsi->file) }}"
                                                 class="btn btn-default">Download
                                                 File</a></td>
                                     @else
@@ -79,12 +80,12 @@
 
                                     <td>
                                         <a class="badge bg-primary border-0 p-2"
-                                            href="/dosen/skripsi/{{ $t->skripsi->id }}">
+                                            href="{{ url('/dosen/skripsi/' . $t->skripsi->id) }}">
                                             <i class="fas fa-eye fa-lg"></i>
                                         </a>
                                         @if ($t->skripsi->status == 'Revisi')
 
-                                            <form action="/dosen/skripsi/{{ $t->skripsi->id }}" method="post"
+                                            <form action="{{ url('/dosen/skripsi/' . $t->skripsi->id) }}" method="post"
                                                 class="d-inline">
                                                 @method('put')
                                                 @csrf

@@ -4,7 +4,7 @@
     <section id="">
         <div class="col-lg-8">
 
-            <form action="/dosen/skripsi/{{ $skripsi->id }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/dosen/skripsi/' . $skripsi->id) }}" method="POST" enctype="multipart/form-data">
                 @method('put')
                 @csrf
 

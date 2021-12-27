@@ -78,9 +78,7 @@ class MhsSkripsiController extends Controller
      */
     public function show(Skripsi $skripsi)
     {
-        return view('/mahasiswa/skripsi/showSkripsi',[
-            'skripsi' => $skripsi,
-        ]);
+        
     }
 
     /**
@@ -137,7 +135,7 @@ class MhsSkripsiController extends Controller
         
         Bimbingan::create($validatedData);
 
-        return redirect('/mahasiswa/skripsi/')->with('success','Skripsi anda berhasil diupdate :)');
+        return redirect(url('/mahasiswa/skripsi/'))->with('success','Skripsi anda berhasil diupdate :)');
 
     }
 

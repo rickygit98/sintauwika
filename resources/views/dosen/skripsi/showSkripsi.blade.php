@@ -18,14 +18,15 @@
              <div class="container-fluid">
                  <div class="row">
                      <div class="col-12">
-                         <a href="/dosen/skripsi/" class="btn btn-primary mb-2"> <i class="fas fa-arrow-alt-circle-left"></i>
+                         <a href="{{ url('/dosen/skripsi/') }}" class="btn btn-primary mb-2"> <i
+                                 class="fas fa-arrow-alt-circle-left"></i>
                              Back to Skripsi List</a>
 
 
                          <!-- Main content -->
                          <div class="invoice p-3 mb-3">
                              @if ($skripsi->status == 'Approve')
-                                 <img src="/img/approve.png" alt="" srcset="" class='position-absolute'
+                                 <img src="{{ asset('/img/approve.png') }}" alt="" srcset="" class='position-absolute'
                                      style="width: 100px; right:10px;">
 
                              @endif
@@ -120,7 +121,7 @@
                                                          <td><a href="{{ $skripsi->link }}" class="btn btn-default"
                                                                  target="blank">Link
                                                                  File Skripsi</a></td>
-                                                         <td><a href="/download/?file={{ $skripsi->file }}"
+                                                         <td><a href="{{ url('/download/?file=' . $skripsi->file) }}"
                                                                  class="btn btn-default">Download File</a></td>
 
                                                      </tr>
@@ -211,23 +212,23 @@
 
                                          @endif
 
-                                         <td><a href="/print/{{ $skripsi->id }}" class="btn btn-default"><i
-                                                     class="fas fa-print me-2"></i>Print</a>
+                                         <td><a href="{{ url('/print/' . $skripsi->id) }}" class="btn btn-default"
+                                                 target="blank"><i class="fas fa-print me-2"></i>Print</a>
                                          </td>
-                                         <td><a href="/download-pdf/{{ $skripsi->id }}" class="btn btn-default"><i
-                                                     class="fas fa-print me-2"></i>Save PDF</a>
+                                         <td><a href="{{ url('/download-pdf/' . $skripsi->id) }}"
+                                                 class="btn btn-default"><i class="fas fa-print me-2"></i>Save PDF</a>
                                          </td>
                                      @else
                                          <td>
                                              <a class="btn btn-primary float-right"
-                                                 href="/dosen/skripsi/{{ $skripsi->id }}/edit"><i
+                                                 href="{{ url('/dosen/skripsi/' . $skripsi->id) }}/edit"><i
                                                      class="far fa-share-square"></i> Submit Revisi
                                              </a>
                                          </td>
                                          <td>
 
 
-                                             <form action="/dosen/skripsi/{{ $skripsi->id }}" method="post"
+                                             <form action="{{ url('/dosen/skripsi/' . $skripsi->id) }}" method="post"
                                                  class="d-inline">
                                                  @method('put')
                                                  @csrf
@@ -249,7 +250,7 @@
 
                                      <td>
                                          <a class="btn btn-success float-right me-2"
-                                             href="/dosen/skripsi/showbimbingan/{{ $skripsi->id }}">
+                                             href="{{ url('/dosen/skripsi/showbimbingan/' . $skripsi->id) }}">
                                              <i class="fas fa-history"></i>
                                              Lihat History Bimbingan
                                          </a>
@@ -271,14 +272,13 @@
          <div class="alert" role="alert">
              <h4 class="alert-heading">Anda Belum Mengajukan Topik Skripsi</h4>
              <p>
-                 Maaf Mahasiswa teladan!
-                 Kamu tidak belum bisa mengakses halaman ini jika belum mendapat topik yang tervalidasi , pastikan anda
-                 sudah
-                 mengirim topik dulu sebelumnya dan tunggu validasi dari dosen pembimbing pilihan anda
+                 Maaf!
+                 Belum ada topik yang tervalidasi
              </p>
              <hr>
 
-             <a class="btn btn-primary my-3" href="/mahasiswa/dashboard/" style="text-decoration: none;"> Kembali ke
+             <a class="btn btn-primary my-3" href="{{ url('/dosen/dashboard/') }}" style="text-decoration: none;">
+                 Kembali ke
                  Dashboard </a>
          </div>
 

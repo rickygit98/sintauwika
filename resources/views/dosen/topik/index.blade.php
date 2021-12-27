@@ -37,12 +37,12 @@
                                     <td>{{ $topik->kategori->name }}</td>
                                     <td>{{ $topik->mahasiswa->user->name }}</td>
                                     <td>
-                                        <a href="/dosen/topik/{{ $topik->id }}" class="badge bg-primary p-2">
+                                        <a href="{{ url('/dosen/topik/' . $topik->id) }}" class="badge bg-primary p-2">
                                             <i class="fas fa-eye fa-lg"></i>
                                         </a>
 
-                                        <form action="/dosen/topik/{{ $topik->id }}" method="post" class="d-inline"
-                                            id="form-confirm">
+                                        <form action="{{ url('/dosen/topik/' . $topik->id) }}" method="POST"
+                                            class="d-inline" id="form-confirm">
                                             @method('put')
                                             @csrf
                                             <input type="hidden" id="status" name="status">

@@ -59,8 +59,8 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <input id="comment" type="hidden" name="comment" class="@error(' comment') is-invalid @enderror"
-                        required value="{{ old('comment') }}">
+                    <input id="comment" type="hidden" name="comment" class="@error('comment') is-invalid @enderror" required
+                        value="{{ old('comment') }}">
                     <trix-editor input="comment"></trix-editor>
 
                 </div>

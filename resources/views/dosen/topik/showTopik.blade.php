@@ -1,7 +1,8 @@
 <!-- Main content -->
 @extends('layouts.dsnmain')
 @section('content')
-    <a class="btn btn-primary ms-4" href="/dosen/topik/"> <i class="fas fa-arrow-alt-circle-left"></i> Back To List</a>
+    <a class="btn btn-primary ms-4" href="{{ url('/dosen/topik/') }}"> <i class="fas fa-arrow-alt-circle-left"></i> Back To
+        List</a>
     <div class="container d-flex justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -28,7 +29,7 @@
                     </dl>
                 </div>
                 <div class="">
-                    <form action="/dosen/topik/{{ $topik->id }}" method="post" class="d-inline">
+                    <form action="{{ url('/dosen/topik/' . $topik->id) }}" method="post" class="d-inline">
                         @method('put')
                         @csrf
                         <input type="hidden" id="status" name="status">

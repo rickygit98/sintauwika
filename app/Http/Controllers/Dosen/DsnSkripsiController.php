@@ -100,7 +100,7 @@ class DsnSkripsiController extends Controller
             Jadwal::create([
                 'skripsi_id'=>$skripsi->id,
             ]);
-            return redirect('/dosen/skripsi/')->with('success','Berhasil Approve Skripsi');
+            return redirect(url('/dosen/skripsi/'))->with('success','Berhasil Approve Skripsi');
 
         } else {
             //id yang lain sudah ada di topik
@@ -141,7 +141,7 @@ class DsnSkripsiController extends Controller
 
             Bimbingan::create($validatedData);
             
-            return redirect('/dosen/skripsi/')->with('success','Berhasil Update Skripsi');
+            return redirect(url('/dosen/skripsi/'))->with('success','Berhasil Update Skripsi');
         }
         
          

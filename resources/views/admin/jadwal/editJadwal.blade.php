@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-8">
 
-                <form action="/admin/jadwal/{{ $jadwal->id }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/jadwal/' . $jadwal->id) }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="mb-3">

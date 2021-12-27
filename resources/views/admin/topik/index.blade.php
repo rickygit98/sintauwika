@@ -65,13 +65,7 @@
                                 </td>
 
                             </tr>
-                            <tr class="expandable-body d-none">
-                                <td colspan="8">
-                                    <p style="display: none;">
-                                        {!! $t->comment !!}
-                                    </p>
-                                </td>
-                            </tr>
+
                         @endforeach
                     </tbody>
                 </table>
