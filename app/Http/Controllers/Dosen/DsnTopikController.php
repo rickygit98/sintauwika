@@ -36,16 +36,10 @@ class DsnTopikController extends Controller
         ->whereIn('status', ['Submit Pertama'])          
         ->get();
 
-        if ($topiks->first() == null) {
-            return view('/dosen/topik/index',[
-                'topiks' => null,
-            ]);
-        } else {
-            return view('/dosen/topik/index',[
-                'topiks' => $topiks,
-            ]);
-        }
-        
+        return view('/dosen/topik/index',[
+            'topiks' => $topiks,
+        ]);
+     
     }
 
     /**

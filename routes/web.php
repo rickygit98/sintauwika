@@ -11,6 +11,7 @@ use App\Http\Controllers\Mahasiswa\MhsJadwalController;
 use App\Http\Controllers\Dosen\DsnDashboardController;
 use App\Http\Controllers\Dosen\DsnTopikController;
 use App\Http\Controllers\Dosen\DsnSkripsiController;
+use App\Http\Controllers\Dosen\DsnJadwalController;
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminSkripsiController;
@@ -75,6 +76,7 @@ Route::group(['as'=>'dosen.','prefix' => 'dosen','middleware'=>['auth','dosen']]
     Route::get('skripsi/showbimbingan/{skripsi:id}', [DsnSkripsiController::class,'showBimbingan']);
     Route::resource('topik', DsnTopikController::class);
     Route::resource('skripsi', DsnSkripsiController::class);
+    Route::resource('jadwal', DsnJadwalController::class);
  
     
 });

@@ -41,7 +41,7 @@ class MhsBimbinganController extends Controller
             ->first();
             
             //dapatkan bimbingan yang id skripsinya = skripsi_id diatas
-            $bimbingan = Bimbingan::where('skripsi_id','=',$skripsi->id)->get();
+            $bimbingan = Bimbingan::where('skripsi_id','=',$skripsi->id)->orderBy('id','DESC')->get();
 
 
             return view('/mahasiswa/bimbingan/index',[

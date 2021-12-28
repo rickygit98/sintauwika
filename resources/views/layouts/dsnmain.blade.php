@@ -77,6 +77,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/dosen/jadwal/') }}"
+                                class="nav-link {{ Request::is('dosen/jadwal') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    Jadwal Sidang
+                                </p>
+                            </a>
+                        </li>
 
 
 

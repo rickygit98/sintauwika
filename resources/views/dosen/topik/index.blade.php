@@ -9,7 +9,8 @@
         </div>
     @endif
 
-    @if ($topiks)
+    @forelse ($topiks as $topik)
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -29,51 +30,48 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($topiks as $topik)
+                            <tr data-widget="expandable-table" aria-expanded="false">
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $topik->title }}</td>
+                                <td>{{ $topik->kategori->name }}</td>
+                                <td>{{ $topik->mahasiswa->user->name }}</td>
+                                <td>
+                                    <a href="{{ url('/dosen/topik/' . $topik->id) }}" class="badge bg-primary p-2">
+                                        <i class="fas fa-eye fa-lg"></i>
+                                    </a>
 
-                                <tr data-widget="expandable-table" aria-expanded="false">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $topik->title }}</td>
-                                    <td>{{ $topik->kategori->name }}</td>
-                                    <td>{{ $topik->mahasiswa->user->name }}</td>
-                                    <td>
-                                        <a href="{{ url('/dosen/topik/' . $topik->id) }}" class="badge bg-primary p-2">
-                                            <i class="fas fa-eye fa-lg"></i>
-                                        </a>
+                                    <form action="{{ url('/dosen/topik/' . $topik->id) }}" method="POST"
+                                        class="d-inline" id="form-confirm">
+                                        @method('put')
+                                        @csrf
+                                        <input type="hidden" id="status" name="status">
+                                        <input type="hidden" id="contact" name="contact"
+                                            value="{{ $topik->mahasiswa->user->contact }}">
+                                        <input type="hidden" id="email" name="email"
+                                            value="{{ $topik->mahasiswa->user->email }}">
 
-                                        <form action="{{ url('/dosen/topik/' . $topik->id) }}" method="POST"
-                                            class="d-inline" id="form-confirm">
-                                            @method('put')
-                                            @csrf
-                                            <input type="hidden" id="status" name="status">
-                                            <input type="hidden" id="contact" name="contact"
-                                                value="{{ $topik->mahasiswa->user->contact }}">
-                                            <input type="hidden" id="email" name="email"
-                                                value="{{ $topik->mahasiswa->user->email }}">
+                                        <button class="badge bg-warning border-0 p-2" id="btnTerima" type="submit"
+                                            onclick="return confirm('Apakah anda yakin ingin menerima Topik?')">
+                                            <i class="fas fa-check fa-lg"></i>
+                                        </button>
 
-                                            <button class="badge bg-warning border-0 p-2" id="btnTerima" type="submit"
-                                                onclick="return confirm('Apakah anda yakin ingin menerima Topik?')">
-                                                <i class="fas fa-check fa-lg"></i>
-                                            </button>
-
-                                            <button class="badge bg-danger border-0 p-2" id="btnTolak" type="submit"
-                                                onclick="return confirm('Apakah anda yakin ingin menolak Topik?')">
-                                                <i class="fas fa-minus-circle fa-lg"></i>
-                                            </button>
-                                        </form>
+                                        <button class="badge bg-danger border-0 p-2" id="btnTolak" type="submit"
+                                            onclick="return confirm('Apakah anda yakin ingin menolak Topik?')">
+                                            <i class="fas fa-minus-circle fa-lg"></i>
+                                        </button>
+                                    </form>
 
 
-                                    </td>
+                                </td>
+                            </tr>
+                            <tr class="expandable-body d-none">
+                                <td colspan="6">
+                                    <p style="display: none;">
+                                        {!! $topik->comment !!}
+                                    </p>
+                                </td>
+                            </tr>
 
-                                </tr>
-                                <tr class="expandable-body d-none">
-                                    <td colspan="6">
-                                        <p style="display: none;">
-                                            {!! $topik->comment !!}
-                                        </p>
-                                    </td>
-                                </tr>
-                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -81,7 +79,9 @@
             </div>
             <!-- /.card -->
         </div>
-    @else
+
+    @empty
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -95,5 +95,7 @@
             </div>
         </div>
 
-    @endif
+    @endforelse
+
+
 @endsection
